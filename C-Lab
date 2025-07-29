@@ -157,3 +157,453 @@ int main (){
     return 0;
 }
 
+=================================================================================================================================================
+CONDITIONAL 
+
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 10; i++){
+        printf("%d\n", i);
+    }
+}
+
+--------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++){
+
+        for (int j = 1; j <= i; j++){
+            printf("*");
+        }
+
+        printf("\n");
+    }
+}
+
+---------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++){
+
+        for (int j = 1; j <= i; j++){
+            printf("%d", j);
+        }
+
+        printf("\n");
+    }
+}
+
+---------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++){
+
+        for (int j = 1; j <= i; j++){
+            printf("%d", i);
+        }
+
+        printf("\n");
+    }
+}
+
+---------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    int i = 1;
+
+    while (i <= 10){
+        printf("%d\n", i);
+        i++;
+    }
+}
+
+--------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    int i = 1;
+
+    do {
+        printf("inside the loop");
+        i++;
+    }
+    while(i == 1);
+    printf("\noutside  the loop");
+
+}
+
+==============================================================================================================================
+UNCONDITIONAL
+
+#include <stdio.h>
+
+int main() {
+    int a = 5;
+
+    while (a <= 10){
+        printf("%d\n", a);
+        a++;
+
+        if (a == 9){
+            break;
+        }
+    }
+}
+
+----------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    int a = 5;
+
+    while (a <= 10){
+
+        if (a == 6){
+            a++;
+            continue;
+        }
+
+        printf("%d\n", a);
+        a++;
+    }
+}
+
+----------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main() {
+    int a = 1;
+
+    repeat:
+            printf("%d\n", a);
+            a++;
+
+    if (a <= 10){
+
+        goto repeat;
+
+    }
+}
+
+===============================================================================================================================
+
+ARRAYS
+
+#include <stdio.h>
+
+int main(){
+
+    int i;
+    int age[5] = { 1, 4, 7, 5, 3};
+
+    for (i = 0; i < 5; i++){
+        printf("age[%d] = %d\n", i, age[i]);
+    }
+    return 0;
+}
+
+----------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int main(){
+
+    int i, arr[7];
+
+    printf("Enter elements in array: \n");
+    for(i = 0; i < 7; i++){
+        printf("Enter element %d:", i+1);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Elements in array: \n");
+    for(i = 0; i < 7; i++){
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+    return 0;
+}
+
+----------------------------------------------------------------------------
+INSERT
+
+#include <stdio.h>
+
+int main(){
+
+    int i, n, arr[20], value, index;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter elements in array: \n");
+    for(i = 0; i < n; i++){
+        printf("Enter element %d:", i+1);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Elements in array: \n");
+    for(i = 0; i < n; i++){
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+
+    printf("Enter value to insert: ");
+    scanf("%d", &value);
+
+    printf("Enter index to insert: ");
+    scanf("%d", &index);
+
+    for(i = n; i >= index - 1; i--){
+        arr[i+1] = arr[i];
+    }
+
+    arr[index] = value;
+
+    n+=1;
+
+    printf("Updated array: \n");
+    for(i = 0; i < n; i++){
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+
+    return 0;
+}
+
+-----------------------------------------------------------------------------
+MERGE
+
+#include <stdio.h>
+
+int main(){
+
+    int i, size1, size2, arr1[10], arr2[20];
+
+    printf("Enter size of first array: ");
+    scanf("%d", &size1);
+
+    printf("Enter elements of first array: \n");
+    for(i = 0; i < size1; i++){
+        printf("Enter element %d:", i+1);
+        scanf("%d", &arr1[i]);
+    }
+
+    printf("Enter size of second array: ");
+    scanf("%d", &size2);
+
+    printf("Enter elements of second array: \n");
+    for(i = 0; i < size2; i++){
+        printf("Enter element %d:", i+1);
+        scanf("%d", &arr2[i]);
+    }
+
+    size2 += size1;
+
+    for(i = 0; i < size2; i++){
+        arr1[size1 + i] = arr2[i];
+    }
+
+    printf("Array after merging: \n");
+    for(i = 0; i < size2; i++){
+        printf("arr[%d] = %d\n", i, arr2[i]);
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------------------------
+SEARCH
+
+#include <stdio.h>
+
+int main(){
+
+    int i, size1, size2, arr1[10], arr2[20];
+
+    printf("Enter size of first array: ");
+    scanf("%d", &size1);
+
+    printf("Enter elements of first array: \n");
+    for(i = 0; i < size1; i++){
+        printf("Enter element %d:", i+1);
+        scanf("%d", &arr1[i]);
+    }
+
+    printf("Enter size of second array: ");
+    scanf("%d", &size2);
+
+    printf("Enter elements of second array: \n");
+    for(i = 0; i < size2; i++){
+        printf("Enter element %d:", i+1);
+        scanf("%d", &arr2[i]);
+    }
+
+    size2 += size1;
+
+    for(i = 0; i < size2; i++){
+        arr1[size1 + i] = arr2[i];
+    }
+
+    printf("Array after merging: \n");
+    for(i = 0; i < size2; i++){
+        printf("arr[%d] = %d\n", i, arr2[i]);
+    }
+
+    return 0;
+}
+
+-------------------------------------------------------------------------------------
+SORTING
+
+#include <stdio.h>
+
+int main(){
+    int a[20], n, i, j, temp;
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+
+    printf("Enter elements in array: \n");
+    for(i = 0; i < n; i++){
+        printf("Enter element %d: ", i+1);
+        scanf("%d", &a[i]);
+    }
+
+    printf("Elements in array are: \n");
+    for(int i = 0; i < n; i++){
+        printf("a[%d] = %d\n", i, a[i]);
+    }
+
+    for(i = 0; i < n; i++){
+        for(j = i + 1; j < n; j++){
+            if(a[j] < a[i]){
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+    printf("Array elements in ascending order: \n");
+    for(int i = 0; i < n; i++){
+        printf("a[%d] = %d\n", i, a[i]);
+    }
+    return 0;
+}
+
+-------------------------------------------------------------------------------------
+DELETION
+
+
+-------------------------------------------------------------------------------------
+2D ARRAY
+
+#include <stdio.h>
+
+int main(){
+    int a[3][2] = {2,1,4,3,6,5};
+
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 2; j++){
+            printf("a[%d][%d] = %d\n", i, j, a[i][j]);
+        }
+    }
+    return 0;
+}
+
+--------------------------------------------------------------------------------------
+3D SUM
+
+#include<stdio.h>
+int main()
+{
+    int a[3][3], b[3][3], add[3][3];
+    int i, j;
+    printf("Enter Matrix 1:");
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter Matrix 2:");
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            add[i][j] = a[i][j] + b[i][j];
+        }
+    }
+    printf("\nAddition of matrix 1 and 2 is: \n");
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            printf("%d ",add[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+------------------------------------------------------------------------------------
+3D MULTIPLICATION
+
+#include<stdio.h>
+int main()
+{
+    int a[3][3], b[3][3], add[3][3];
+    int i, j;
+    printf("Enter Matrix 1:");
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter Matrix 2:");
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            scanf("%d",&b[i][j]);
+        }
+    }
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            add[i][j] = a[i][j] * b[i][j];
+        }
+    }
+    printf("\nAddition of matrix 1 and 2 is: \n");
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            printf("%d ",add[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+====================================================================================================================
