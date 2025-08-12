@@ -606,4 +606,209 @@ int main()
     return 0;
 }
 
-====================================================================================================================
+==========================================================================================================================================
+
+DYNAMIC MEMORY LOCATION
+
+MALLOC
+
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int n, i, *ptr, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    ptr = (int*)malloc(n*sizeof(int));
+
+    if(ptr == NULL){
+        printf("Error, memory not allocated.");
+        exit(0);
+    }
+
+    printf("Enter elements in array: \n");
+    for(i = 0; i < n; ++i){
+        printf("Enter element %d: ", i + 1);
+        scanf("%d",ptr + i);
+        sum += *(ptr + i);
+    }
+
+    printf("Sum of elements in array: %d", sum);
+    free(ptr);
+    return 0;
+}
+
+---------------------------------------------------------------------------
+
+CALLOC
+
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int n, i, *ptr, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    ptr = (int*)calloc(n, sizeof(int));
+
+    if(ptr == NULL){
+        printf("Error, memory not allocated.");
+        exit(0);
+    }
+
+    printf("Enter elements in array: \n");
+    for(i = 0; i < n; ++i){
+        printf("Enter element %d: ", i + 1);
+        scanf("%d",ptr + i);
+        sum += *(ptr + i);
+    }
+
+    printf("Sum of elements in array: %d", sum);
+    free(ptr);
+    return 0;
+}
+
+--------------------------------------------------------------------------
+
+REALLOC
+
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int i, *ptr, n1, n2;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n1);
+    ptr = (int*)malloc(n1*sizeof(int));
+
+    printf("Address of previously allocated memory: \n");
+    for(i = 0; i < n1; ++i){
+        printf("%u\t", ptr + i);
+    }
+
+    printf("\nEnter new size of array: ");
+    scanf("%d", &n2);
+    ptr = realloc(ptr, n2);
+
+    for(i = 0; i < n2; ++i){
+    printf("%u\t", ptr + i);
+    }
+    return 0;
+}
+
+---------------------------------------------------------------------------
+
+CHAR MALLOC
+
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char name[100];
+    char *description;
+    strcpy(name, "Ravi");
+    description = malloc( 200 * sizeof(char) );
+
+    if( description == NULL ){
+        fprintf(stderr, "Error, unable to allocate required memory\n");
+    }
+
+    else{
+        strcpy( description, "Ravi a student in Amrita");
+    }
+
+    printf("Name: %s\n", name );
+    printf("Description: %s\n", description );
+    return 0;
+}
+
+-------------------------------------------------------------------------------
+
+CHAR REALLOC
+
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char name[100];
+    char *description;
+    strcpy(name, "Ravi");
+    description = malloc( 200 * sizeof(char) );
+
+    if( description == NULL ){
+        fprintf(stderr, "Error, unable to allocate required memory\n");
+    }
+
+    else{
+        strcpy( description, "Ravi a student in Amrita\n");
+    }
+
+    description = realloc( description, 100 * sizeof(char) );
+    if( description == NULL ){
+        fprintf(stderr, "Error, unable to allocate required memory\n");
+    }
+    else{
+        strcat( description, "He is in B.tech");
+    }
+
+    printf("Name: %s\n", name );
+    printf("Description: %s\n", description );
+    return 0;
+}
+
+==========================================================================================================================
+
+POINTER ARITHMETRIC
+
+POINTER INCREMENT
+
+#include<stdio.h>
+int main(){
+    int n, *pn, *pn1;
+    pn = &n;
+    pn1 = pn + 1;
+    printf("%d %d\n", pn, pn1);
+    double d, *pd, *pd1;
+    pd = &d;
+    pd1 = pd + 1;
+    printf("%d %d\n", pd, pd1);
+}
+
+---------------------------------------------------------------------------------------
+
+POINTER ARITHMETIC 2
+
+#include<stdio.h>
+int main(){
+    int *ptr = (int *)1000;
+    printf(“Old Value of ptr : %u",ptr);
+    ptr = ptr + 1;
+    printf("New Value of ptr : %u",ptr);
+    return 0;
+}
+
+---------------------------------------------------------------------------------------
+
+DIFFERENCE
+
+#include<stdio.h>
+int main(){
+    float *ptr2=(float *)2000;
+    printf("\nDifference : %d\n",ptr2-ptr1);
+    return 0;
+}
+
+----------------------------------------------------------------------------------------
+
+DIVISION
+
+#include<stdio.h>
+int main()
+{
+int *ptr1,*ptr2;
+ptr1 = (int *)1000;
+ptr2 = ptr1/4;
+return(0);
+}
+
+-----------------------------------------------------------------------------------------
